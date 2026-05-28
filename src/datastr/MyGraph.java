@@ -76,6 +76,52 @@ public class MyGraph<Ttype> {
 	}
 	
 	
+	public void addEdge(Ttype elementFrom, Ttype elementTo, float weight) 
+	throws Exception{
+		if(elementFrom == null || elementTo == null || weight <= 0) {
+			throw new Exception("Ievades dati nav korekti");
+		}
+		
+		if(isEmpty()) {
+			throw new Exception("Grafs ir tukšs un nav iespējams izveidot saites");
+		}
+		
+		int indexOfElementFrom = findVerticeIndex(elementFrom);
+		int indexOfElementTo = findVerticeIndex(elementTo);
+		if(indexOfElementFrom == -1 || indexOfElementTo == -1) {
+			throw new Exception("Kāds no elementiem grafā neeksistē");
+		}
+		
+		if(elementFrom.equals(elementTo)) {
+			throw new Exception("Nav iespējams veidot cilpas jeb saiti uz sevi pašu");
+		}
+		
+		MyEdgeNode tempEdgeNode 
+			= verticeNodes[indexOfElementFrom].getFirstEdgeNode();
+		
+		//pirmais saišu bloks
+		if(tempEdgeNode == null) {
+			MyEdgeNode newEdgeNode = new MyEdgeNode(indexOfElementTo, weight);
+			verticeNodes[indexOfElementFrom].setFirstEdgeNode(newEdgeNode);
+		}
+		else//jau kārtējais saišu bloks
+		{
+			while(tempEdgeNode.getNextEdge() != null) {
+				if(tempEdgeNode.getIndexToVertice() == indexOfElementTo
+						&& tempEdgeNode.getWeight() == weight) {
+					throw new Exception("Tāda saite jau eksistē");
+				}
+				
+				tempEdgeNode = tempEdgeNode.getNextEdge();
+			}
+			
+			MyEdgeNode newEdgeNode = new MyEdgeNode(indexOfElementTo, weight);
+			tempEdgeNode.setNextEdge(newEdgeNode);
+			
+		}
+		
+	}
+	
 	
 	
 	
