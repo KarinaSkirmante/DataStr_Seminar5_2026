@@ -120,10 +120,31 @@ public class MyGraph<Ttype> {
 			
 		}
 		
+	
+		
+		
 	}
 	
 	
-	
+	public void print() throws Exception {
+		if(isEmpty()) {
+			throw new Exception("Grafs ir tukšs un to nevar izprintēt");
+		}
+		
+		for(int i = 0; i < howManyElements; i++) {
+			System.out.print(verticeNodes[i].getVerticeElement() + " ->");
+			
+			MyEdgeNode currentEdgeNode = verticeNodes[i].getFirstEdgeNode();
+			
+			while(currentEdgeNode != null) {
+				System.out.print(
+				"[" +currentEdgeNode.getIndexToVertice()+ "] "+
+				currentEdgeNode.getWeight() + " km");
+				currentEdgeNode = currentEdgeNode.getNextEdge();
+			}
+		}
+		
+	}
 	
 	
 	
