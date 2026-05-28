@@ -3,6 +3,7 @@ package datastr;
 public class MyVerticeNode<Ttype>{
 	private Ttype verticeElement;
 	private MyEdgeNode firstEdgeNode = null;
+	private boolean isVisited = false;
 	
 	public Ttype getVerticeElement() {
 		return verticeElement;
@@ -24,6 +25,12 @@ public class MyVerticeNode<Ttype>{
 		this.firstEdgeNode = firstEdgeNode;
 	}
 	
+	public boolean isVisited() {
+		return isVisited;
+	}
+	public void setVisited(boolean isVisited) {
+		this.isVisited = isVisited;
+	}
 	public MyVerticeNode(Ttype verticeElement) {
 		setVerticeElement(verticeElement);
 	}
