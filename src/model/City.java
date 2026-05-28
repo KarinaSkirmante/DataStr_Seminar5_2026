@@ -41,7 +41,7 @@ public class City {
 		setCountry(country);
 	}
 	public String toString() {
-		return title + " ( " + country+ "), " + areaKm2 + " km^2 "+
+		return title + " (" + country+ "), " + areaKm2 + " km^2 "+
 				"[" + postCode + "]";
 	}
 
