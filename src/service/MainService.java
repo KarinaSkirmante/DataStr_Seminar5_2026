@@ -23,6 +23,7 @@ public class MainService {
 			map.addEdge("Austin", "Houston", 160);
 			map.addEdge("Austin", "Dallas", 200);
 			map.addEdge("Dallas", "Austin", 200);
+			map.addEdge("Dallas", "Chicago", 900);
 			map.addEdge("Houston", "Atlanta", 800);
 			map.addEdge("Atlanta", "Houston", 800);
 			map.addEdge("Atlanta", "Washington", 600);
@@ -30,8 +31,9 @@ public class MainService {
 			map.addEdge("Denver", "Chicago", 1000);
 			map.addEdge("Chicago", "Denver", 1000);
 			map.print();
-			
-			
+			System.out.println(map.searchPath("Austin", "Washington"));//mēģinām atrast ceļu no Austinas uz Washingtonas
+			System.out.println(map.searchPath("Austin", "Denver"));//mēģinām atrast ceļu no Austinas uz Denver
+			System.out.println(map.searchPath("Austin", "Riga"));//nav Rīga un ceļu nevar atrast
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
