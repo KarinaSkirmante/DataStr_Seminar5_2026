@@ -138,10 +138,12 @@ public class MyGraph<Ttype> {
 			
 			while(currentEdgeNode != null) {
 				System.out.print(
-				"[" +currentEdgeNode.getIndexToVertice()+ "] "+
-				currentEdgeNode.getWeight() + " km");
+				"[" +currentEdgeNode.getIndexToVertice()+ 
+				": "+ verticeNodes[currentEdgeNode.getIndexToVertice()].getVerticeElement()
+				+"] "+currentEdgeNode.getWeight() + " km; ");
 				currentEdgeNode = currentEdgeNode.getNextEdge();
 			}
+			System.out.println();
 		}
 		
 	}
